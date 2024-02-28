@@ -1,0 +1,16 @@
+<html>
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="city_name" placeholder="Enter city name">
+        <button type="submit">Get Weather</button>
+    </form>
+    {% if weather_data %}
+        <div>
+            <p>City: {{ weather_data.name }}</p>
+            <p>Temperature: {{ weather_data.main.temp }}°C</p>
+            <p>Weather: {{ weather_data.weather.0.description }}</p>
+        </div>
+    {% endif %}
+</body>
+</html>
